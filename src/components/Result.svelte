@@ -9,7 +9,7 @@
 </script>
 
 <div>
-  <div class="mcq-py-5 mcq-space-y-3 mcq-border-b mcq-border-b-gray-400">
+  <div class="mcq-pb-5 mcq-space-y-3 mcq-border-b mcq-border-b-gray-400">
     <h2 class="mcq-font-bold mcq-text-xl mcq-text-center">
       Hello {$userStore.username}, Here are the results
     </h2>
