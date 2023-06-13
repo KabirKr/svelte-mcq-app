@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { appStore } from "../store"
+  import { appStore, userStore } from "../store"
   import Button from "./ui/Button.svelte"
 
   let username = ""
@@ -10,6 +10,9 @@
       inputError = "Enter a valid name"
       return
     }
+
+    // Save username
+    userStore.update((value) => ({ ...value, username }))
 
     // Go to wait time screen
     appStore.set("TIMER")

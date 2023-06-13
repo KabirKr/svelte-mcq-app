@@ -1,6 +1,7 @@
 <script lang="ts">
   // Store
-  import { appStore, type AppStore } from "./store"
+  import { appStore } from "./store"
+  import type { AppStore } from "./store"
 
   // Components
   import Home from "./components/Home.svelte"

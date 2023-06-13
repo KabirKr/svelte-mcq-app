@@ -1,5 +1,5 @@
 <script>
-  import { appStore } from "../store"
+  import { appStore, userStore } from "../store"
   import { __MCQ__ } from "../data"
   import Button from "./ui/Button.svelte"
 
@@ -9,8 +9,17 @@
 </script>
 
 <div>
-  <h2 class="mcq-mb-5 mcq-font-bold mcq-text-2xl mcq-text-center">Result</h2>
-  <hr />
+  <div class="mcq-py-5 mcq-space-y-3 mcq-border-b mcq-border-b-gray-400">
+    <h2 class="mcq-font-bold mcq-text-xl mcq-text-center">
+      Hello {$userStore.username}, Here are the results
+    </h2>
+    <p
+      class="mcq-flex mcq-items-center mcq-justify-between mcq-font-semibold mcq-text-base"
+    >
+      <span class="mcq-block">Total Marks: {$userStore.totalMarks}</span>
+      <span class="mcq-block">Your Score: {$userStore.marksObtained}</span>
+    </p>
+  </div>
 
   <div class="mcq-mt-8">
     <ol class="mcq-space-y-6 mcq-list-decimal mcq-ml-3">
