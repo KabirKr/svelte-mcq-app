@@ -25,9 +25,13 @@
       <li>
         <label
           for={option.id.toString()}
-          class="mcq-inline-flex mcq-items-center mcq-justify-between mcq-w-full mcq-px-3 mcq-py-5 mcq-bg-white mcq-border mcq-border-gray-300 mcq-cursor-pointer hover:mcq-text-gray-600 hover:mcq-bg-gray-100 mcq-h-full"
-          class:correct={isCorrect && selectedOption === option.value}
-          class:incorrect={!isCorrect && selectedOption === option.value}
+          class={`mcq-inline-flex mcq-items-center mcq-justify-between mcq-w-full mcq-px-3 mcq-py-5  mcq-cursor-pointer hover:mcq-text-gray-600 hover:mcq-bg-gray-100 mcq-h-full ${
+            selectedOption === option.value
+              ? isCorrect
+                ? "mcq-bg-green-50 mcq-border-green-600 mcq-border-2"
+                : "mcq-bg-red-50 mcq-border-red-600 mcq-border-2"
+              : "mcq-bg-white mcq-border mcq-border-gray-300"
+          }`}
         >
           <input
             type="radio"
@@ -90,17 +94,3 @@
     {/each}
   </ul>
 </div>
-
-<style>
-  .correct {
-    border-width: 2px;
-    border-color: #15803d;
-    background-color: #f0fdf4;
-  }
-
-  .incorrect {
-    border-width: 2px;
-    border-color: #e11d48;
-    background-color: #fff1f2;
-  }
-</style>
