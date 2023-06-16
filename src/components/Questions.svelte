@@ -1,6 +1,6 @@
 <script lang="ts">
   import { appStore, userStore } from "../store"
-  import SingleQuestion from "./SingleQuestion.svelte"
+  import { startTimer, restartTimer } from "../utils/timer"
 
   // TODO lod the data from window.__MCQ__
   import { __MCQ__ } from "../data"
@@ -8,7 +8,7 @@
 
   let currentMcqIndex = 0
   let selectedOption: string | null = null
-  let timeLeft = 45
+  let timeLeft: number
 
   $: isLastMcq = currentMcqIndex === __MCQ__.length - 1
   $: currentMcq = __MCQ__[currentMcqIndex]
@@ -20,13 +20,10 @@
   // Update total marks
   userStore.update((val) => ({ ...val, totalMarks: __MCQ__.length }))
 
-  // Timer
-  const timer = setInterval(() => {
-    timeLeft--
-    if (timeLeft <= 0) {
-      clearInterval(timer)
-    }
-  }, 1000)
+  // Start timer
+  startTimer(3, (time) => {
+    timeLeft = time
+  })
 
   // Handle next button click
   const handleNext = () => {
@@ -41,7 +38,7 @@
     currentMcq = __MCQ__[currentMcqIndex]
 
     // Reset timer
-    timeLeft = 45
+    restartTimer(45)
 
     // Reset selected answer
     selectedOption = null
@@ -94,13 +91,19 @@
           />
           <label
             for={option.id.toString()}
-            class={`mcq-inline-flex mcq-items-center mcq-justify-between mcq-w-full mcq-px-3 mcq-py-5 mcq-cursor-pointer mcq-h-full ${
+            class={`mcq-inline-flex mcq-items-center mcq-justify-between mcq-w-full mcq-px-3 mcq-py-5 mcq-cursor-pointer mcq-h-full 
+            ${
               selectedOption === option.value
                 ? isCorrect
                   ? "mcq-bg-green-50 mcq-border-green-600 mcq-border-2 hover:mcq-bg-green-50"
                   : "mcq-bg-red-50 mcq-border-red-600 mcq-border-2 hover:mcq-bg-red-50"
                 : "mcq-bg-white mcq-border mcq-border-gray-300 hover:mcq-text-gray-600 hover:mcq-bg-gray-100"
             } 
+            ${
+              !!selectedOption &&
+              option.value === correctAns &&
+              "mcq-bg-green-50 mcq-border-green-600 mcq-border-2 hover:mcq-bg-green-50"
+            }
               ${
                 !!selectedOption &&
                 selectedOption !== option.value &&
