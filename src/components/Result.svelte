@@ -1,7 +1,9 @@
-<script>
+<script lang="ts">
   import { appStore, userStore } from "../store"
-  import { __MCQ__ } from "../data"
   import Button from "./ui/Button.svelte"
+
+  // Load MCQs from window
+  const __MCQ__ = (window as any).__MCQ__
 
   const startAgain = () => {
     appStore.set("HOME")

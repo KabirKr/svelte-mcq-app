@@ -2,6 +2,8 @@
   import { appStore, userStore } from "../store"
   import Button from "./ui/Button.svelte"
 
+  const __TITLE__ = (window as any).__TITLE__
+
   let username = ""
   let inputError = null
 
@@ -22,7 +24,7 @@
 <div>
   <!-- TODO Accept Title as Prop -->
   <h2 class="mcq-text-gray-950 mcq-text-2xl mcq-font-bold mcq-text-center">
-    Computer Science
+    {__TITLE__}
   </h2>
   <div>
     <label for="mcq-username" class="mcq-block mcq-mt-10">
