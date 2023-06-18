@@ -21,7 +21,7 @@
   userStore.update((val) => ({ ...val, totalMarks: __MCQ__.length }))
 
   // Start timer
-  startTimer(3, (time) => {
+  startTimer(45, (time) => {
     timeLeft = time
   })
 

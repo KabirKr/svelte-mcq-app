@@ -24,7 +24,8 @@
   </div>
 
   <div class="mcq-mt-8">
-    <ol class="mcq-space-y-6 mcq-list-decimal mcq-ml-3">
+    <h3 class="mcq-font-bold mcq-text-xl">Answer Key:</h3>
+    <ol class="mcq-space-y-6 mcq-list-decimal mcq-ml-3 mcq-mt-8">
       {#each __MCQ__ as mcq}
         <li>
           <div>
