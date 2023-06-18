@@ -25,16 +25,20 @@
 
   <div class="mcq-mt-8">
     <h3 class="mcq-font-bold mcq-text-xl">Answer Key:</h3>
-    <ol class="mcq-space-y-6 mcq-list-decimal mcq-ml-3 mcq-mt-8">
+    <ol class="mcq-space-y-6 mcq-ml-3 mcq-mt-8 mcq-p-0 mcq-m-0">
       {#each __MCQ__ as mcq}
-        <li>
+        <li class="mcq-list-decimal before:mcq-content-none">
           <div>
             <h3 class="mcq-font-semibold mcq-text-lg">{mcq.question}</h3>
-            <ul class="mcq-list-decimal mcq-list-inside mcq-mt-3">
+            <ul class=" mcq-list-inside mcq-mt-3 mcq-p-0 mcq-m-0">
               {#each mcq.options as option}
                 <li
-                  class={option.id === mcq.answer &&
-                    "mcq-text-green-600 mcq-font-medium"}
+                  class={[
+                    "mcq-list-decimal",
+                    "before:mcq-content-none",
+                    option.id === mcq.answer &&
+                      "mcq-text-green-600 mcq-font-medium",
+                  ].join(" ")}
                 >
                   {option.value}
                 </li>

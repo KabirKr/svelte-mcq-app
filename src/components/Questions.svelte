@@ -76,9 +76,11 @@
       <span>{currentMcq.question}</span>
     </h3>
 
-    <ul class="mcq-grid mcq-w-full mcq-gap-5 md:mcq-grid-cols-2 mcq-mt-8">
+    <ul
+      class="mcq-grid mcq-w-full mcq-gap-5 md:mcq-grid-cols-2 mcq-mt-8 mcq-p-0 mcq-m-0"
+    >
       {#each currentMcq.options as option}
-        <li>
+        <li class="mcq-list-none before:mcq-content-none">
           <input
             type="radio"
             id={option.id.toString()}
@@ -100,6 +102,7 @@
               "mcq-py-5",
               "mcq-cursor-pointer",
               "mcq-h-full",
+              "mcq-border-solid",
               selectedOption === option.value
                 ? isCorrect
                   ? "mcq-bg-green-50 mcq-border-green-600 mcq-border-2 hover:mcq-bg-green-50"
