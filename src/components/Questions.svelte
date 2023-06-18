@@ -1,10 +1,10 @@
 <script lang="ts">
   import { appStore, userStore } from "../store"
   import { startTimer, restartTimer } from "../utils/timer"
-
-  // TODO lod the data from window.__MCQ__
-  import { __MCQ__ } from "../data"
   import Button from "./ui/Button.svelte"
+
+  // Load MCQs from window
+  const __MCQ__ = (window as any).__MCQ__
 
   let currentMcqIndex = 0
   let selectedOption: string | null = null
@@ -91,25 +91,27 @@
           />
           <label
             for={option.id.toString()}
-            class={`mcq-inline-flex mcq-items-center mcq-justify-between mcq-w-full mcq-px-3 mcq-py-5 mcq-cursor-pointer mcq-h-full 
-            ${
+            class={[
+              "mcq-inline-flex",
+              "mcq-items-center",
+              "mcq-justify-between",
+              "mcq-w-full",
+              "mcq-px-3",
+              "mcq-py-5",
+              "mcq-cursor-pointer",
+              "mcq-h-full",
               selectedOption === option.value
                 ? isCorrect
                   ? "mcq-bg-green-50 mcq-border-green-600 mcq-border-2 hover:mcq-bg-green-50"
                   : "mcq-bg-red-50 mcq-border-red-600 mcq-border-2 hover:mcq-bg-red-50"
-                : "mcq-bg-white mcq-border mcq-border-gray-300 hover:mcq-text-gray-600 hover:mcq-bg-gray-100"
-            } 
-            ${
+                : "mcq-bg-white mcq-border mcq-border-gray-300 hover:mcq-text-gray-600 hover:mcq-bg-gray-100",
               !!selectedOption &&
-              option.value === correctAns &&
-              "mcq-bg-green-50 mcq-border-green-600 mcq-border-2 hover:mcq-bg-green-50"
-            }
-              ${
-                !!selectedOption &&
+                option.value === correctAns &&
+                "mcq-bg-green-50 mcq-border-green-600 mcq-border-2 hover:mcq-bg-green-50",
+              !!selectedOption &&
                 selectedOption !== option.value &&
-                "mcq-cursor-not-allowed mcq-bg-gray-100"
-              }
-            `}
+                "mcq-cursor-not-allowed mcq-bg-gray-100",
+            ].join(" ")}
           >
             <div class="mcq-flex mcq-w-full mcq-justify-between">
               <div class="mcq-w-full mcq-flex mcq-space-x-2">
