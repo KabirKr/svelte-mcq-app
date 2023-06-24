@@ -8,8 +8,11 @@ export default {
     container: {
       center: true,
     },
-
-    extend: {},
+    extend: {
+      fontFamily: {
+        brand: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 }
