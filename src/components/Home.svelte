@@ -22,9 +22,7 @@
 
 <div>
   <!-- TODO Accept Title as Prop -->
-  <h2
-    class="mcq-text-gray-950 mcq-text-2xl mcq-font-bold mcq-text-center mcq-font-brand"
-  >
+  <h2 class="mcq-text-gray-950 mcq-text-2xl mcq-font-bold mcq-text-center">
     {@html __TITLE__}
   </h2>
   <div>

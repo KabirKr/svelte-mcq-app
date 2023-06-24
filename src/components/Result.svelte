@@ -29,14 +29,13 @@
       {#each __MCQ__ as mcq}
         <li class="mcq-list-decimal before:mcq-content-none">
           <div>
-            <h3 class="mcq-font-semibold mcq-text-lg mcq-font-brand">
+            <h3 class="mcq-font-semibold mcq-text-lg">
               {@html mcq.question}
             </h3>
             <ul class=" mcq-list-inside mcq-mt-3 mcq-p-0 mcq-m-0">
               {#each mcq.options as option}
                 <li
                   class={[
-                    "mcq-font-brand",
                     "mcq-list-decimal",
                     "before:mcq-content-none",
                     option.id === mcq.answer &&

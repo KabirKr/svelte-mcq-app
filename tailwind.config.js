@@ -9,9 +9,9 @@ export default {
       center: true,
     },
     extend: {
-      fontFamily: {
-        brand: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
-      },
+      // fontFamily: {
+      //   brand: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
+      // },
     },
   },
   plugins: [],

@@ -71,7 +71,7 @@
   </div>
 
   <div>
-    <h3 class="mcq-text-base mcq-font-medium mcq-mt-4 mcq-font-brand">
+    <h3 class="mcq-text-base mcq-font-medium mcq-mt-4">
       <span class="mcq-font-bold">(Q{currentMcqIndex + 1})</span>
       <span>{@html currentMcq.question}</span>
     </h3>
@@ -80,7 +80,7 @@
       class="mcq-grid mcq-w-full mcq-gap-5 md:mcq-grid-cols-2 mcq-mt-8 mcq-p-0 mcq-m-0"
     >
       {#each currentMcq.options as option}
-        <li class="mcq-list-none before:mcq-content-none mcq-font-brand">
+        <li class="mcq-list-none before:mcq-content-none">
           <input
             type="radio"
             id={option.id.toString()}
@@ -94,7 +94,6 @@
           <label
             for={option.id.toString()}
             class={[
-              "mcq-font-brand",
               "mcq-inline-flex",
               "mcq-items-center",
               "mcq-justify-between",
