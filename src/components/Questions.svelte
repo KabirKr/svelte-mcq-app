@@ -72,7 +72,7 @@
 
   <div>
     <h3 class="mcq-text-base mcq-font-medium mcq-mt-4">
-      <span class="mcq-font-bold">(Q{currentMcqIndex + 1})</span>
+      <!-- <span class="mcq-font-bold">(Q{currentMcqIndex + 1})</span> -->
       <span>{@html currentMcq.question}</span>
     </h3>
 
