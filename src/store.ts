@@ -1,6 +1,6 @@
 import { writable } from "svelte/store"
 
-export type AppStore = "HOME" | "TIMER" | "QUESTIONS" | "RESULT"
+export type AppStore = "HOME" | "QUESTIONS" | "RESULT"
 
 export type UserStore = {
   username: string

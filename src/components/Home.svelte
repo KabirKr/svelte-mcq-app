@@ -1,23 +1,23 @@
 <script lang="ts">
-  import { appStore, userStore } from "../store"
+  import { appStore } from "../store"
   import Button from "./ui/Button.svelte"
 
   let __TITLE__ = (window as any).__TITLE__
-  let username = ""
-  let inputError = null
+  // let username = ""
+  // let inputError = null
 
-  const startMcq = () => {
-    if (!username.trim().length) {
-      inputError = "Enter a valid name"
-      return
-    }
+  // const startMcq = () => {
+  //   if (!username.trim().length) {
+  //     inputError = "Enter a valid name"
+  //     return
+  //   }
 
-    // Save username
-    userStore.update((value) => ({ ...value, username }))
+  //   // Save username
+  //   userStore.update((value) => ({ ...value, username }))
 
-    // Go to wait time screen
-    appStore.set("TIMER")
-  }
+  //   // Go to wait time screen
+  //   appStore.set("QUESTIONS")
+  // }
 </script>
 
 <div>
@@ -25,7 +25,7 @@
   <h2 class="mcq-text-gray-950 mcq-text-2xl mcq-font-bold mcq-text-center">
     {@html __TITLE__}
   </h2>
-  <div>
+  <!-- <div>
     <label for="mcq-username" class="mcq-block mcq-mt-10">
       <span class="mcq-sr-only">Username</span>
       <input
@@ -45,8 +45,8 @@
         {inputError}
       </small>
     {/if}
-  </div>
-  <Button handleClick={startMcq} class="mcq-mt-2">
+  </div> -->
+  <Button handleClick={() => appStore.set("QUESTIONS")} class="mcq-mt-10">
     <span>Start Quiz</span>
   </Button>
 </div>
